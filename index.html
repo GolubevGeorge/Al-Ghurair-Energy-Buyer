@@ -62,12 +62,16 @@
 </form>
      </body>
 <script>
-  formElem.onsubmit = async (e) => {
-    e.preventDefault();
-    let response = await fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
-      method: 'POST',
-      body: new FormData(formElem)
-    });
-  };
+  var formData = new FormData(formElem);
+ 
+var request = new XMLHttpRequest();
+function reqReadyStateChange() {
+    if (request.readyState == 4 && request.status == 200)
+        document.getElementById("output").innerHTML=request.responseText;
+}
+ 
+request.open("POST", "https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e");
+request.onreadystatechange = reqReadyStateChange;
+request.send(formData);
 </script>
 </html>
