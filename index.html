@@ -1,77 +1,37 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <meta charset="utf-8">
-  <title>Al Ghurair Energy11</title>
-  <style>
-      div.logo{
-      padding:15pt;
-    }
-    h1{
-      color:red;
-    }
-    form.main_form{
-      width:70%;
-      
-    }
-</style>
- </head>
- <body>
-   <div class="logo">
-  <img src="https://www.al-ghurair.com/images/ag-logo.png" alt="logo">
-     </div>
-    <h1>Al Ghurair Energy</h1>
- <form class="main_form", id="formElem">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox"> Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="output"></div>
+<form name="user" action="https://www.corezoid.com/api/1/xml/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e">
+<input type="text" name="username" placeholder="Введите имя" /><br/>
+<input type="text" name="age" placeholder="Введите возраст" /><br/>
+<input type="submit" name="submit" value="Отправить" />
 </form>
-     </body>
 <script>
-  var formData = new FormData(formElem);
+// получаем объект формы
+var form = document.forms.user;
+// прикрепляем обработчик кнопки
+form.submit.addEventListener("click", sendRequest);
  
-var request = new XMLHttpRequest();
-function reqReadyStateChange() {
-    if (request.readyState == 4 && request.status == 200)
-        document.getElementById("output").innerHTML=request.responseText;
+// обработчик нажатия
+function sendRequest(event){
+     
+    event.preventDefault();
+    var formData = new FormData(form);
+ 
+    var request = new XMLHttpRequest();
+ 
+    request.open("POST", form.action);
+     
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200)
+            document.getElementById("output").innerHTML=request.responseText;
+    }
+    request.send(formData);
 }
- 
-request.open("POST", "https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e");
-request.onreadystatechange = reqReadyStateChange;
-request.send(formData);
 </script>
+</body>
 </html>
