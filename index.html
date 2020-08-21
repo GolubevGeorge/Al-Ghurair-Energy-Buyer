@@ -64,7 +64,7 @@
 <script>
   formElem.onsubmit = async (e) => {
     e.preventDefault();
-    let response = await                      fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
+    let response = await fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
       method: 'POST',
       body: new FormData(formElem)
     });
