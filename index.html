@@ -1,37 +1,157 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-</head>
-<body>
-<div id="output"></div>
-<form name="user" action="https://www.corezoid.com/api/1/xml/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e">
-<input type="text" name="username" placeholder="Введите имя" /><br/>
-<input type="text" name="age" placeholder="Введите возраст" /><br/>
-<input type="submit" name="submit" value="Отправить" />
-</form>
-<script>
-// получаем объект формы
-var form = document.forms.user;
-// прикрепляем обработчик кнопки
-form.submit.addEventListener("click", sendRequest);
- 
-// обработчик нажатия
-function sendRequest(event){
-     
-    event.preventDefault();
-    var formData = new FormData(form);
- 
-    var request = new XMLHttpRequest();
- 
-    request.open("POST", form.action);
-     
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200)
-            document.getElementById("output").innerHTML=request.responseText;
+ <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>Al Ghurair Energy</title>
+  <style>
+      div.logo{
+      padding:15pt;
+        display: flex;
     }
-    request.send(formData);
-}
+    h1{
+      color:black;
+      margin:auto;
+      
+      
+    }
+   div.main_form{
+      width:80%;
+      margin:auto;
+     margin-top:50pt;
+    }
+    p.desc{
+      text-align:center;
+      margin-top:-25pt;
+    }
+    p.client_det{
+      font-size:20pt;
+    }
+    div.attach{
+      font-size:20pt;
+      margin-top:50pt;
+      
+    }
+    div.but{
+      margin-top:30pt; 
+      margin:auto;
+      padding:15pt;
+      text-align:center;
+      
+      
+    }
+    
+</style>
+ </head>
+ <body>
+   <div class="logo">
+     <img src="https://www.al-ghurair.com/images/ag-logo.png" alt="logo">
+     <h1>AL GHURAIR ENERGY DMCC - KYC Form</h1>
+     </div>
+   <p class="desc">Must be completed by clients</p>
+   <div class="main_form">
+     <p class="client_det">1. Client Details</p>
+ <form id="formElem">
+   
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Full Legal Client Name</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Client Name"> 
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="inputTradName">Trading Name (if any)</label>
+      <input type="text" class="form-control" id="inputTradName" placeholder="Trading Name">
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="inputDate">Incorporation Date</label>
+      <input type="date" class="form-control" id="inputDate"> 
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="inputState">State / Country of Incorporation</label>
+      <input type="text" class="form-control" id="inputState" placeholder="State / Country">
+    </div> 
+    </div>
+   
+   
+   <div class="form-group">
+    <label for="inputAddress">Registered/Physical Address of Head Office</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Address of Head Office">
+  </div>
+        
+   
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputZip">Postal Code</label>
+      <input type="text" class="form-control" id="inputZip" placeholder="Postal Code">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputNumber">Registration Number</label>
+      <input type="text" class="form-control" id="inputNumber" placeholder="Registration Number">
+    </div>
+  </div>
+   
+   <div class="form-group">
+    <label for="inputTown">Town / City</label>
+      <input type="text" class="form-control" id="inputTown" placeholder="Town / City">
+  </div>
+   
+   <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputTelephone">Telephone Number</label>
+      <input type="text" class="form-control" id="inputTelephone" placeholder="Telephone Number">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputFax">Fax Number</label>
+      <input type="text" class="form-control" id="inputFax" placeholder="Fax Number">
+    </div>
+     <div class="form-group col-md-4">
+      <label for="inputMobile">Mobile Number</label>
+      <input type="text" class="form-control" id="inputMobile" placeholder="Mobile Number"<>
+    </div>
+  </div>
+   
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail">E-Mail Address</label>
+      <input type="text" class="form-control" id="inputEmail" placeholder="E-Mail">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputWebsite">Website</label>
+      <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+    </div>
+  </div>
+   
+   <div class="form-group">
+    <label for="inputContact">Initial point of contact at counterparty</label>
+      <input type="text" class="form-control" id="inputContact" placeholder="Contact at counterparty">
+  </div>
+   
+
+ <form>
+  <div class="form-group">
+    <div class="attach">
+    <p>6. Other Documents Required</p>
+      </div>
+    <div class="list">
+      <p>1. Company Profile	</p>
+      <p>2. Trade License Copy	</p>
+      <p>3. 2 Bank References Letters	</p>
+      <p>4. Last 3 years Audited Financial Report	</p>
+      <p>5. 3 Trade References	</p>
+      </div>
+    <label for="exampleFormControlFile1"></label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+</form>
+   
+   <div class="but">
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+   </div>
+</form>
+     </body>
+<script>
 </script>
-</body>
 </html>
