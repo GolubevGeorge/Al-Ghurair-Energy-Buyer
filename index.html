@@ -150,7 +150,7 @@
       <label for="inputDate">Trade License expiration date</label>
       <input type="date" name="IncorporationDate" class="form-control" id="input">  
        <div id='error' class='exp_error'> 
-        The license must expire no later than one day before the date of filling
+        The license must expire no later than three month before the date of filling
       </div>
       </div>
          </div>
@@ -187,7 +187,7 @@ inp.addEventListener("blur", function( event ) {
   
   var hours = Math.floor(elapsed / 3600000);
   
-  if(hours > 24){
+  if(hours > 2190){
     error.style.visibility='visible'; 
   }
 }, true);
