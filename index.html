@@ -181,13 +181,14 @@
   
 inp.addEventListener("blur", function( event ) { 
   
-  var end = new Date();
+  var today = new Date();
   var inpValue = inp.value;
-  var elapsed = end.getTime() - Date.parse(inp.value);
+  var elapsed = Date.parse(inp.value) -  today.getTime(); 
   
   var hours = Math.floor(elapsed / 3600000);
   
-  if(hours > 2190){
+  if(hours < 0 || hours < 2190){ //2190 
+    alert(hours);
     error.style.visibility='visible'; 
   }
 }, true);
