@@ -187,7 +187,7 @@ inp.addEventListener("blur", function( event ) {
   
   var hours = Math.floor(elapsed / 3600000);
   
-  if(hours > 2190){
+  if(hours < 2190){
     error.style.visibility='visible'; 
   }
 }, true);
