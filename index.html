@@ -167,6 +167,7 @@
   error.style.visibility='hidden';
   
  var inp = document.getElementById('input');
+ var fil = document.getElementById('exampleFormControlFile1');
  
  inp.addEventListener("focus", function( event ) {
  error.style.visibility='hidden';  
@@ -191,9 +192,12 @@ inp.addEventListener("blur", function( event ) {
        
     let formData = new FormData(event.target);
     let obj = {};
+    
+     formData.append("userfile", fil.value);
+    
     formData.forEach((value, key) => obj[key] = value);
     
-    formData.append("userfile", fileInputElement.files[0]);
+   
     
     alert(JSON.stringify(obj));
     
