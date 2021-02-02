@@ -3,7 +3,7 @@
  <head>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta charset="utf-8">
-  <title>Al Ghurair Energy</title>
+  <title>Buyer form</title>
   <style>
       div.logo{
       padding:15pt;
@@ -20,7 +20,7 @@
     }
     p.desc{
       text-align:center; 
-      margin-top:-25pt;
+      margin-left:100pt;
     }
     p.client_det{
       font-size:20pt;
@@ -43,14 +43,14 @@
  <body>
    
    <div class="logo">
-     <img src="https://www.al-ghurair.com/images/ag-logo.png" alt="logo">
-     <h1>AL GHURAIR ENERGY DMCC - KYC Form</h1>
+     <img src="https://cdn.sigma.software/wp-content/themes/ems3/build/project/images/sigma-software-logo.svg.gzip" alt="logo">
+     <h1>Buyer KYC Form</h1>
    </div>
    
    <p class="desc">Must be completed by clients</p>
    
    <div class="main_form">
-     <p class="client_det">1. Client Details</p>
+     <p class="client_det">Client Details</p>
      <form id="formElem" novalidate> 
    
     <div class="form-row">
@@ -74,8 +74,7 @@
       <input type="text" name="CountryOfIncorporation" class="form-control" id="inputState" placeholder="State / Country">
     </div> 
     </div>
-   
-   
+  
    <div class="form-group">
     <label for="inputAddress">Registered/Physical Address of Head Office</label>
       <input type="text" name="AddressOfHeadOffice" class="form-control" id="inputAddress" placeholder="Address of Head Office">
@@ -99,15 +98,11 @@
   </div>
    
    <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
       <label for="inputTelephone">Telephone Number</label>
       <input type="text" name="TelephoneNumber" class="form-control" id="inputTelephone" placeholder="Telephone Number">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputFax">Fax Number</label>
-      <input type="text" name="FaxNumber" class="form-control" id="inputFax" placeholder="Fax Number">
-    </div>
-     <div class="form-group col-md-4">
+     <div class="form-group col-md-6">
       <label for="inputMobile">Mobile Number</label>
       <input type="text" name="MobileNumber" class="form-control" id="inputMobile" placeholder="Mobile Number"<>
     </div>
@@ -131,9 +126,9 @@
     <label for="inputContact">Initial point of contact at counterparty</label>
       <input type="text" name="needs-validation" class="form-control" id="inputContact" placeholder="Contact at counterparty" required>
   </div>
-     
-    <div class="attach">
-    <p>6. Other Documents Required</p>
+       
+        <div class="attach">
+    <p>Other Documents Required</p>
     </div>
        
     <div class="list">
@@ -143,7 +138,6 @@
       <p>4. Last 3 years Audited Financial Report	</p>
       <p>5. 3 Trade References	</p>
     </div>
-    
        
        <div class="form-row">
     <div class="form-group col-md-4">
@@ -155,10 +149,9 @@
       </div>
          </div>
       
-       
-       
+      
     <label for="exampleFormControlFile1"></label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
 
    
    <div class="but">
