@@ -134,9 +134,9 @@
     <div class="list">
       <p>1. Company Profile	</p>
       <p>2. Trade License Copy	</p>
-      <p>3. 2 Bank References Letters	</p>
+      <p>3. Bank References Letters	</p>
       <p>4. Last 3 years Audited Financial Report	</p>
-      <p>5. 3 Trade References	</p>
+      <p>5. Trade References	</p>
     </div>
        
        <div class="form-row">
@@ -167,7 +167,6 @@
   error.style.visibility='hidden';
   
  var inp = document.getElementById('input');
- var fil = document.getElementById('exampleFormControlFile1');
  
  inp.addEventListener("focus", function( event ) {
  error.style.visibility='hidden';  
@@ -192,16 +191,19 @@ inp.addEventListener("blur", function( event ) {
        
     let formData = new FormData(event.target);
     let obj = {};
+      
+   const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+   const file = document.getElementById("exampleFormControlFile1").files[0];
     
-     formData.append("userfile", fil.value);
-    
+    formData.append("myFile", await toBase64(file));
     formData.forEach((value, key) => obj[key] = value);
-    
-   
-    
-    alert(JSON.stringify(obj));
-    
-    
+  
     let response = await fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
       method: 'POST',
       mode: 'no-cors',
@@ -213,6 +215,7 @@ inp.addEventListener("blur", function( event ) {
       referrerPolicy: 'no-referrer',
       body: JSON.stringify(obj)
     });
+    
     
     
     
