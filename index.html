@@ -4,7 +4,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta charset="utf-8">
-  <title>Buyer form</title>
+  <title>Applicant form</title>
    
   <style>
       div.logo{
@@ -197,11 +197,7 @@ inp.addEventListener("blur", function( event ) {
 });
 
    const file = document.getElementById("exampleFormControlFile1").files[0];
-    
-    /*formData.append("myFile", await toBase64(file));*/
-    formData.forEach((value, key) => obj[key] = value);
-    
-  alert(JSON.stringify(obj));
+   formData.forEach((value, key) => obj[key] = value);
     
     let response = await fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
       method: 'POST',
@@ -209,7 +205,6 @@ inp.addEventListener("blur", function( event ) {
       cache: 'no-cache',
       headers: {
         'Content-Type':'form/multipart'
-      //'Content-Type': 'application/json'
     },
       referrerPolicy: 'no-referrer',
       body: JSON.stringify(obj)
