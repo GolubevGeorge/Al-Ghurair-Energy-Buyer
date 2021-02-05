@@ -87,11 +87,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputZip">Postal Code</label>
-      <input type="text" name="PostalCode" class="form-control" id="inputZip" placeholder="Postal Code">
+      <input type="number" name="PostalCode" class="form-control" id="inputZip" placeholder="Postal Code">
     </div>
     <div class="form-group col-md-6">
       <label for="inputNumber">Registration Number</label>
-      <input type="text" name="RegistrationNumber" class="form-control" id="inputNumber" placeholder="Registration Number">
+      <input type="number" name="RegistrationNumber" class="form-control" id="inputNumber" placeholder="Registration Number">
     </div>
   </div>
    
@@ -200,6 +200,8 @@ inp.addEventListener("blur", function( event ) {
     
     /*formData.append("myFile", await toBase64(file));*/
     formData.forEach((value, key) => obj[key] = value);
+    
+  alert(JSON.stringify(obj));
     
     let response = await fetch('https://www.corezoid.com/api/1/json/public/795622/b3b97b4dc0590311377e49905ac1e5038e7fd85e', {
       method: 'POST',
